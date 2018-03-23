@@ -4,7 +4,7 @@ Component description.
 
 ## Component Props
 Allowed properties and values.
-mark required
+
 Property | Values | Default | Description
 -------- | ------ | ------- | -----------
 `variant` | `default` | `default` | Desired variation of the Component.
