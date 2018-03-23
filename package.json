@@ -75,6 +75,7 @@
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
     ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
