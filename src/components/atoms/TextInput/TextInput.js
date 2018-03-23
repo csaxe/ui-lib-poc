@@ -5,39 +5,38 @@ import classnames from 'classnames';
 
 export const TextInput = props => {
   const {
-    variant,
-    tagName,
+    type,
+    width,
+    display,
     extraClasses,
-    children,
     ...attr,
   } = props;
 
-  const Tag = tagName;
 
-  const className = classnames([
+  const className = classnames(
     'TextInput',
-    `TextInput-${variant}`,
+    `TextInput-${type}`,
+    `TextInput-${width}`,
+    {'TextInput-block': display === 'block'},
     ...extraClasses,
-  ]);
+  );
 
   return (
-    <Tag className={className} {...attr}>
-      {children}
-    </Tag>
+    <input type={type} className={className} {...attr} />
   );
 };
 
 export default TextInput;
 
 TextInput.propTypes = {
-  variant: PropTypes.oneOf(['default']),
-  tagName: PropTypes.string,
+  type: PropTypes.oneOf(['text', 'search', 'url', 'tel', 'email']),
+  width: PropTypes.oneOf(['fill', 'short', 'medium', 'wide']),
+  block: PropTypes.oneOf([null, 'block']),
   extraClasses: PropTypes.array,
-  children: PropTypes.node,
 }
 
 TextInput.defaultProps = {
-  variant: 'default',
-  tagName: 'div',
+  type: 'text',
+  width: 'fill',
   extraClasses: [],
 }
