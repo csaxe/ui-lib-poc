@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.scss';
+import Loadable from 'react-loadable';
+
+const getCurrentComponent = ({type, name}) => {
+  return (type && name) 
+    ? Loadable({
+      loader: () => import(`./components/${type}/${name}/${name}.example.js`),
+      loading() {
+        return <div>Loading ...</div>
+      }
+    })
+    : null;
+};
 
 class App extends Component {
   getRoute() {
@@ -13,6 +25,7 @@ class App extends Component {
 
   render() {
     const route = this.getRoute();
+    const CurrentComponent = getCurrentComponent(route);
 
     return (
       <div className="App">
@@ -20,8 +33,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">HDQC UI Lib POC</h1>
         </header>
-        <p className="App-intro">
-        </p>
+        <CurrentComponent />
       </div>
     );
   }
