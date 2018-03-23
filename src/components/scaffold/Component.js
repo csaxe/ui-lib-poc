@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Component.scss';
-import { concatClassList } from '../../util/concatClassList';
+import classnames from 'classnames';
 
 export const Component = props => {
   const {
@@ -14,7 +14,7 @@ export const Component = props => {
 
   const Tag = tagName;
 
-  const className = concatClassList([
+  const className = classnames([
     'Component',
     `Component-${variant}`,
     ...extraClasses,
