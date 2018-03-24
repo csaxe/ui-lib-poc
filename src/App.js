@@ -4,14 +4,14 @@ import './App.scss';
 import Loadable from 'react-loadable';
 
 const getCurrentComponent = ({type, name}) => {
-  return (type && name) 
+  return ((type && name) 
     ? Loadable({
       loader: () => import(`./components/${type}/${name}/${name}.example.js`),
       loading() {
         return <div>Loading ...</div>
       }
     })
-    : null;
+    : () => (<p>Set the path to see a component</p>));
 };
 
 class App extends Component {

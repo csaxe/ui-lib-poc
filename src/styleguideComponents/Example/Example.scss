@@ -1,0 +1,26 @@
+.Example {
+  padding: 1em;
+
+  & > * + * {
+    margin-top: 1em;
+  }
+
+  &__props {
+    list-style: none;
+    padding: 0;
+
+    & > li {
+      padding-left: 1em;
+    }
+
+    &::before {
+      content: '{';
+      display: block;
+    }
+
+    &::after {
+      content: '}';
+      display: block;
+    }
+  }
+}
