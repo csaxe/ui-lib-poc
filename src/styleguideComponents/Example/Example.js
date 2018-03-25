@@ -21,9 +21,11 @@ export const Example = props => {
     return (
       propNames.length
       ? (
-        <ul className="Example__props">
-          {propNames.map(propName => <li key={`${exampleId}_${propName}`}><strong>{propName}: </strong>"{renderingProps[propName]}"</li>)}
-        </ul>
+        <code className="Example__props">
+          <ul>
+            {propNames.map(propName => <li key={`${exampleId}_${propName}`}><strong>{propName}: </strong>"{renderingProps[propName]}"</li>)}
+          </ul>
+        </code>
       )
         : <p><em>No props were passed to the component</em></p>
     );
@@ -32,9 +34,9 @@ export const Example = props => {
     <div className="Example">
       {title && <h2>{title}</h2>}
       {children}
-      <figure>
+      <figure className="Example__figure">
         {example}
-        <figcaption>
+        <figcaption className="Example__caption">
           {showProps()}
         </figcaption>    
       </figure>
