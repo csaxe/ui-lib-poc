@@ -6,6 +6,8 @@ import classnames from 'classnames';
 export const Button = props => {
   const {
     variant,
+    size,
+    display,
     tagName,
     extraClasses,
     children,
@@ -17,6 +19,9 @@ export const Button = props => {
   const className = classnames([
     'Button',
     `Button-${variant}`,
+    `Button-${size}`,
+    {'Button-block': (display === 'block')},
+    {'Button-disabled': (props.disabled)},
     ...extraClasses,
   ]);
 
@@ -30,14 +35,17 @@ export const Button = props => {
 export default Button;
 
 Button.propTypes = {
-  variant: PropTypes.oneOf(['default']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  display: PropTypes.oneOf(['block']),
   tagName: PropTypes.string,
   extraClasses: PropTypes.array,
   children: PropTypes.node,
 }
 
 Button.defaultProps = {
-  variant: 'default',
-  tagName: 'div',
+  variant: 'primary',
+  size: 'medium',
+  tagName: 'button',
   extraClasses: [],
 }
