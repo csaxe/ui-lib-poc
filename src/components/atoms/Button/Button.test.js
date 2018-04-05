@@ -3,5 +3,7 @@ import { shallow } from 'enzyme';
 import Button from './Button';
 
 it('renders without crashing', () => {
-  shallow(<Button />);
+  const wrapper = shallow(<Button />);
+
+  expect(wrapper.length).toBe(1);
 });
