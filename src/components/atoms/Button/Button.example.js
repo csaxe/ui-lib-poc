@@ -3,7 +3,7 @@ import Wrapper from '../../../styleguideComponents/Wrapper/Wrapper';
 import Example from '../../../styleguideComponents/Example/Example';
 import Button from './Button';
 
-function rendering(props) { return (<Button {...props} />); }
+function rendering(props) { return (<Button {...props}>Hello</Button>); }
 
 export const ButtonExample = () => {
   return (
@@ -13,10 +13,52 @@ export const ButtonExample = () => {
         rendering={rendering}
       />
       <Example
-        title="Default Variant"
+        title="Primary Variant"
         rendering={rendering}
         renderingProps={{
-          variant: 'default',
+          variant: 'primary',
+        }}
+      />
+      <Example
+        title="Secondary Variant"
+        rendering={rendering}
+        renderingProps={{
+          variant: 'secondary',
+        }}
+      />
+      <Example
+        title="Tertiary Variant"
+        rendering={rendering}
+        renderingProps={{
+          variant: 'tertiary',
+        }}
+      />
+      <Example
+        title="Link Variant"
+        rendering={rendering}
+        renderingProps={{
+          variant: 'link',
+        }}
+      />
+      <Example
+        title="Disabled button"
+        rendering={rendering}
+        renderingProps={{
+          disabled: true,
+        }}
+      />
+      <Example
+        title="Small Primary Variant"
+        rendering={rendering}
+        renderingProps={{
+          size: 'small',
+        }}
+      />
+      <Example
+        title="Large Primary Variant"
+        rendering={rendering}
+        renderingProps={{
+          size: 'large',
         }}
       />
     </Wrapper>
