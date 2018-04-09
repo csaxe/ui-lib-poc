@@ -1,0 +1,24 @@
+.TextInput {
+  border: 1px solid #ccc;
+  font-size: 1em;
+  height: 2em;
+  padding: 0.5em;
+  width: 100%;
+
+  &:focus {
+    border-color: blue;
+  }
+
+  // widths
+  &-short {
+    max-width: 5em;
+  }
+
+  &-medium {
+    max-width: 10em;
+  }
+
+  &-wide {
+    max-width: 20em;
+  }
+}
