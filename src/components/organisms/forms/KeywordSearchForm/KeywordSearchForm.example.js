@@ -1,6 +1,6 @@
 import React from 'react';
-import Wrapper from '../../../styleguideComponents/Wrapper/Wrapper';
-import Example from '../../../styleguideComponents/Example/Example';
+import Wrapper from '../../../../styleguideComponents/Wrapper/Wrapper';
+import Example from '../../../../styleguideComponents/Example/Example';
 import KeywordSearchForm from './KeywordSearchForm';
 
 function rendering(props) { return (<KeywordSearchForm {...props} />); }
