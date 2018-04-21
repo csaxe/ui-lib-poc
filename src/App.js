@@ -3,10 +3,10 @@ import logo from './logo.svg';
 import './App.scss';
 import Loadable from 'react-loadable';
 
-const getCurrentComponent = ({type, name}) => {
-  return ((type && name) 
+const getCurrentComponent = ({items, name}) => {
+  return ((items && name) 
     ? Loadable({
-      loader: () => import(`./components/${type}/${name}/${name}.example.js`),
+      loader: () => import(`./components/${items.join('/')}/${name}/${name}.example.js`),
       loading() {
         return <div>Loading ...</div>
       }
@@ -18,9 +18,12 @@ class App extends Component {
   getRoute() {
     const browserPath = window.location.pathname;
 
-    const [type = false, name = false] = browserPath.slice(1).split('/');
+    const items = browserPath.slice(1).split('/');
 
-    return {type, name};
+    const name = items.pop();
+
+
+    return {items, name};
   }
 
   render() {
