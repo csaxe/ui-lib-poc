@@ -35,9 +35,9 @@ export const Button = props => {
 export default Button;
 
 Button.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link', 'web20']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  display: PropTypes.oneOf(['block']),
+  display: PropTypes.oneOf(['block', 'flushLeft']),
   tagName: PropTypes.string,
   extraClasses: PropTypes.array,
   children: PropTypes.node,

@@ -34,6 +34,13 @@ export const ButtonExample = () => {
         }}
       />
       <Example
+        title="'Web 2.0' Variant"
+        rendering={rendering}
+        renderingProps={{
+          variant: 'web20',
+        }}
+      />
+      <Example
         title="Link Variant"
         rendering={rendering}
         renderingProps={{
