@@ -20,7 +20,7 @@ export const Button = props => {
     'Button',
     `Button-${variant}`,
     `Button-${size}`,
-    {'Button-block': (display === 'block')},
+    `Button-${display}`,
     {'Button-disabled': (props.disabled)},
     ...extraClasses,
   ]);

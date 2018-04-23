@@ -11,10 +11,12 @@ export const KeywordSearchForm = props => {
   const {
     variant,
     tagName,
+    layout,
     identifier,
     extraClasses,
     labelText,
     inputAttr,
+    buttonAttr,
     children,
     ...attr,
   } = props;
@@ -29,16 +31,18 @@ export const KeywordSearchForm = props => {
     ...extraClasses,
   ]);
 
+
+
   return (
     <Tag className={blockClassName} {...attr}>
       <div className="KeywordSearchForm__description">
         <Label htmlFor={inputId} extraClasses={["KeywordSearchForm__label"]}>{labelText}</Label>
       </div>
       <div className="KeywordSearchForm__field">
-        <TextInput extraClasses={["KeywordSearhForm__input"]} {...inputAttr} type="search" />
+        <TextInput extraClasses={["KeywordSearhForm__input"]} {...inputAttr} id="inputId" type="search" />
       </div>
       <div className="KeywordSearchForm__control">
-        <Button extraClasses={["KeywordSearchForm__button"]}>Search</Button>
+        <Button extraClasses={["KeywordSearchForm__button"]} {...buttonAttr} variant="web20" display="flushLeft">Search</Button>
       </div>
       <div className="KeywordSearchForm__content">
         {children}
@@ -50,7 +54,7 @@ export const KeywordSearchForm = props => {
 export default KeywordSearchForm;
 
 KeywordSearchForm.propTypes = {
-  variant: PropTypes.oneOf(['default']),
+  variant: PropTypes.oneOf(['default', 'web20']),
   tagName: PropTypes.string,
   labelText: PropTypes.string,
   extraClasses: PropTypes.array,
