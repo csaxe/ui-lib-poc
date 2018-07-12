@@ -1,0 +1,105 @@
+@mixin doorButton($doorOneColor, $doorTwoColor) {
+    background: linear-gradient(to left top, $doorOneColor 50%, transparent 50%), linear-gradient(to right bottom, $doorTwoColor 50%, transparent 50%), white;
+    background-blend-mode: multiply;
+    background-size: 199% 200%, 199% 200%;
+    background-position: 0 0, 100% 100%;
+    border-width: 2px;
+    animation: buttonDoorsOpen 0.4s forwards;
+
+    &:hover {
+      animation: buttonDoorsClose 0.4s forwards;
+    }
+
+}
+
+@keyframes buttonDoorsClose {
+  0% { background-position: 0 0, 100% 100%; }
+
+  10% { background-position: 75% 75%, 25% 25%; }
+
+  50% { background-position: 50% 50%, 50% 50%; }
+
+  80% { background-position: 75% 75%, 25% 25%; }
+
+  100% { background-position: 100% 100%, 0 0; }
+}
+
+@keyframes buttonDoorsOpen {
+  0% { background-position: 100% 100%, 0 0; }
+
+  10% { background-position: 75% 75%, 25% 25%; }
+
+  50% { background-position: 50% 50%, 50% 50%; }
+
+  80% { background-position: 75% 75%, 25% 25%; }
+
+  100% { background-position: 0 0, 100% 100%; }
+}
+
+.Button {
+  background-color: transparent;
+  border: 1px solid #666;
+  border-radius: 3px;
+  cursor: pointer;
+  height: 2.25em;
+  padding: 0 1em;
+
+  &-primary {
+    @include doorButton(rgba(255, 255, 0, 0.75), rgba(0, 200, 255, 0.75));
+  }
+
+  &-secondary {
+    @include doorButton(rgba(255, 0, 255, 0.65), rgba(0, 255, 255, 0.65));
+  }
+
+  &-tertiary {
+    background-color: white;
+    border-style: dotted;
+    transition-property: background-color, color;
+    transition-duration: 0.2s;
+
+    &:hover {
+      border-style: solid;
+      color: black;
+    }
+  }
+
+  &-link {
+    border: none;
+    color: blue;
+    height: auto;
+    padding: 0;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &-disabled {
+    animation: none;
+    background-color: #eee;
+    border-color: #999;
+    box-shadow: inset white 2px 2px;
+    color: #999;
+    cursor: default;
+
+    &:hover {
+      animation: none;
+      border-style: solid;
+      color: #999;
+    }
+  }
+
+  &-small {
+    font-size: 0.875em;
+  }
+
+  &-medium {
+    font-size: 1em;
+  }
+
+  &-large {
+    font-size: 1.25em;
+  }
+}
